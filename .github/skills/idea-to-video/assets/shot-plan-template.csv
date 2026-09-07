@@ -1,2 +1,2 @@
-shot_id,purpose,target_seconds,fps,num_frames,width,height,visible_action,camera,lighting_palette,audio_dialogue,continuity_in,required_end_state,pipeline,conditioning_asset,seed,options,depends_on,status
-S001,,,,,,,,,,,,,,,,,,not_started
+shot_id,purpose,target_seconds,fps,num_frames,width,height,visible_action,camera,lighting_palette,audio_dialogue,transition_in,transition_out,audio_handoff,opening_handle_seconds,ending_handle_seconds,continuity_in,required_end_state,pipeline,conditioning_asset,seed,options,depends_on,status
+S001,,,,,,,,,,,,,,,,,,,,,,,not_started

@@ -41,3 +41,4 @@ Allowed statuses:
 6. Never store tokens, cookies, login URLs, device codes, or secrets.
 7. When returning to an earlier stage, keep downstream artifacts and mark them `stale: true`.
 8. On resume, verify the latest approved artifact exists before continuing.
+9. For adapter-enabled work, record selection and download/use authorization as decisions using the existing `value`, `source`, and `status` fields. Track downloaded weights and reference assets in `artifacts`, including official repository, immutable revision, filename, byte size, SHA-256, and absolute local path for each checkpoint. Per-shot attempts record the adapter/reference used, pipeline, effective strength, quantization, output geometry/timing, and pilot/review outcome. Reuse only matching verified assets on resume; a new candidate never replaces the current approved attempt until approved.
