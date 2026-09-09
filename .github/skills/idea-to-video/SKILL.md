@@ -11,7 +11,9 @@ This is a native generated-video workflow, not an image slideshow workflow. Pref
 
 ## Source of truth
 
-Before constructing or running commands, consult the repository documentation:
+This skill can be loaded from a working checkout or an installed Copilot plugin. Resolve `references/`, `assets/`, and `scripts/` relative to this `SKILL.md`, not the caller's working directory. Read the plugin/repository root `README.md` for runtime setup. Keep Python environments, LTX source checkouts, model files, and project outputs in user-managed working directories, not in the installed plugin cache.
+
+This repository packages the workflow, not the LTX inference source. Before constructing or running LTX commands, consult the documentation in the selected **LTX runtime source checkout**:
 
 - `README.md`
 - `packages/ltx-pipelines/docs/installation.md`
@@ -19,6 +21,10 @@ Before constructing or running commands, consult the repository documentation:
 - `packages/ltx-pipelines/docs/optimization.md`
 
 Run the selected pipeline with `--help` before relying on a CLI option. Repository behavior wins over this skill if they differ.
+
+For approved LTX setup on Windows, invoke `install-ltx25.ps1` from the plugin/repository root by its absolute path while keeping a user-managed working directory. Both defaults resolve from that working directory: `-LtxSourcePath` uses `packages\LTX-2` and `-PythonPath` uses `.venv\Scripts\python.exe`. When the source parameter is omitted, the installer adds a missing `/packages/` rule to that workspace's `.gitignore` without overwriting existing content, clones the upstream repository if missing, and reuses existing checkouts without updating them. Override either path to use another existing checkout or environment. Supply `-PyTorchWheelPath` with local prebuilt wheel files or a wheel directory when needed; omit it to preserve existing `torch`, `torchaudio`, and `torchvision` builds. The installer installs both LTX source packages and constrains dependency resolution to those PyTorch builds. It does not download models or render videos, and marketplace installation alone does not run it.
+
+Render by invoking the selected module directly with the installed environment's interpreter, for example `& $pythonPath -m ltx_pipelines.distilled ...`; there is no fixed LTX render wrapper. Use that same interpreter for CLI help, the mandatory PyTorch preflight, every render, and retakes. Record its absolute path and the LTX source revision in each project's reproducible commands. Keep project artifacts in the user's working project folder, not beside the installed skill.
 
 Read these skill references when entering the corresponding work:
 

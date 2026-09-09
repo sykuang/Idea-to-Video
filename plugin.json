@@ -1,0 +1,17 @@
+{
+  "name": "idea-to-video",
+  "description": "Turn a rough idea into a planned, generated, reviewed, and assembled AI video with an approval-driven Copilot workflow.",
+  "version": "1.0.0",
+  "author": {
+    "name": "sykuang"
+  },
+  "homepage": "https://github.com/sykuang/Idea-to-Video",
+  "repository": "https://github.com/sykuang/Idea-to-Video",
+  "keywords": [
+    "video",
+    "ltx",
+    "storyboard",
+    "generative-ai"
+  ],
+  "skills": [".github/skills"]
+}

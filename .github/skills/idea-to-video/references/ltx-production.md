@@ -64,6 +64,10 @@ Always run the PyTorch preflight below during production planning and immediatel
 
 Run this command with the same Python interpreter, environment, host, and CUDA device visibility as generation. Replace `python` with the render environment's interpreter or launcher when needed. For remote rendering, run it on the render host, not the client.
 
+For approved runtime setup, use `install-ltx25.ps1` from the user's working directory, even when the script lives in a plugin cache. Python defaults to that working directory's `.venv\Scripts\python.exe`. Unless `-LtxSourcePath` selects an existing checkout, setup adds a missing `/packages/` rule to the workspace's `.gitignore`, downloads missing LTX source into `packages\LTX-2`, and reuses it on later runs. Its optional `-PyTorchWheelPath` accepts local wheel files or directories; otherwise it preserves the target environment's installed `torch`, `torchaudio`, and `torchvision`. Setup is separate from rendering and does not replace this preflight.
+
+Invoke the selected pipeline directly with that interpreter: `& $pythonPath -m ltx_pipelines.distilled ...` (or the approved DFR, IC-LoRA, or retake module). In the command below, use `| & $pythonPath -` for the same interpreter. Use absolute model and output paths in reproducible commands, or explicitly set the project working directory; paths are no longer anchored by a render wrapper.
+
 PowerShell:
 
 ```powershell
