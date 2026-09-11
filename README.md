@@ -1,8 +1,8 @@
 # Idea to Video
 
 A GitHub Copilot skill for turning a rough idea into a planned, generated,
-reviewed, and assembled video. The default production route is LTX-2.5 with
-native video and audio.
+reviewed, and assembled video. The production route is LTX-2.5 with native
+video and audio.
 
 The workflow covers concept development, a creative brief, shot planning,
 prompting, a pilot render, continuity review, and final assembly. Explicit
